@@ -29,6 +29,9 @@ body {
 .u-margin-bottom-big {
   margin-bottom: 8rem; }
 
+.u-margin-top-big {
+  margin-top: 8rem; }
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -120,6 +123,12 @@ body {
   .btn--white::after {
     background-color: #fff; }
 
+.btn--orange {
+  background-color: #FB9A02;
+  color: #fff; }
+  .btn--orange::after {
+    background-color: #FB9A02; }
+
 .btn::after {
   content: "";
   display: inline-block;
@@ -184,7 +193,7 @@ body {
 .feature-box {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
-  padding: 4rem;
+  padding: 3rem 5rem 3rem 5rem;
   text-align: center;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
@@ -197,12 +206,110 @@ body {
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.03); }
 
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  width: 35rem;
+  height: 55rem; }
+  .card__side {
+    height: 55rem;
+    border-radius: 3px;
+    transition: all .8s ease;
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    display: inline-block;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1); }
+    .card__side--front {
+      background-color: #fff; }
+    .card__side--back {
+      transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right, #FFD670, #FFA830); }
+      .card__side--back-2 {
+        background-image: linear-gradient(to right, #F88379, #FA7268); }
+      .card__side--back-3 {
+        background-image: linear-gradient(to right, #7FD1B9, #3EC49C); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0); }
+  .card__picture {
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%); }
+    .card__picture--1 {
+      background-image: linear-gradient(to right bottom, #FFD670, #FFA830), url(../images/adventure-1.jpg);
+      background-size: cover; }
+    .card__picture--2 {
+      background-image: linear-gradient(to right bottom, #F88379, #FA7268), url(../images/adventure-2.jpg);
+      background-size: cover; }
+    .card__picture--3 {
+      background-image: linear-gradient(to right bottom, #7FD1B9, #3EC49C), url(../images/adventure-3.jpg);
+      background-size: cover; }
+  .card__heading {
+    color: #f7f7f7;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    position: absolute;
+    top: 18rem;
+    left: 2rem;
+    width: 50%; }
+  .card__heading-span {
+    padding: 1rem 1.5rem;
+    border-radius: 3px;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; }
+    .card__heading-span--1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 214, 112, 0.9), rgba(255, 168, 48, 0.9)); }
+    .card__heading-span--2 {
+      background-image: linear-gradient(to right bottom, rgba(248, 131, 121, 0.9), rgba(250, 114, 104, 0.9)); }
+    .card__heading-span--3 {
+      background-image: linear-gradient(to right bottom, rgba(127, 209, 185, 0.9), rgba(62, 196, 156, 0.9)); }
+  .card__details {
+    padding-top: 5rem; }
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      .card__details ul li {
+        text-align: center;
+        font-size: 1.6rem;
+        padding: 1rem; }
+        .card__details ul li:not(:last-child) {
+          border-bottom: 1px solid #eee; }
+  .card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center; }
+  .card__price-box {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #fff; }
+  .card__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase; }
+  .card__price-value {
+    font-size: 6rem;
+    font-weight: 100; }
+
 .header {
   position: relative;
   height: 95vh;
   background-image: linear-gradient(to bottom, rgba(225, 66, 1, 0.4), rgba(240, 88, 4, 0.3)), url(../images/backpack.jpg);
   background-size: cover;
   background-position: top;
+  -webkit-clip-path: polygon(0 0, 100% 20%, 100% 75vh, 0% 100%);
   clip-path: polygon(0 0, 100% 20%, 100% 75vh, 0% 100%); }
   .header__logo-box {
     position: absolute;
@@ -230,17 +337,17 @@ body {
   .row [class^="col-"] {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
-      margin-right: 6rem; }
+      margin-right: 3rem; }
   .row .col-1-of-1 {
     width: 100%; }
   .row .col-1-of-2 {
-    width: calc((100% - 6rem) / 2); }
+    width: calc((100% - 3rem) / 2); }
   .row .col-1-of-3 {
-    width: calc((100% - 2*6rem) / 3); }
+    width: calc((100% - 2*3rem) / 3); }
   .row .col-1-of-4 {
-    width: calc((100% - 3*6rem) / 4); }
+    width: calc((100% - 3*3rem) / 4); }
   .row .col-2-of-3 {
-    width: calc(2*((100% - 2*6rem) / 3) + 6rem); }
+    width: calc(2*((100% - 2*3rem) / 3) + 3rem); }
 
 .section-about {
   background-color: #f7f7f7;
@@ -249,8 +356,14 @@ body {
 
 .section-features {
   margin-top: -40vh;
-  padding: 40rem 0;
-  background-image: linear-gradient(to bottom, rgba(251, 154, 2, 0.6), rgba(240, 88, 4, 0.3)), url(../images/adventure.jpg);
+  padding: 25rem 0 20rem 0;
+  background-image: linear-gradient(to bottom, rgba(251, 154, 2, 0.6), rgba(240, 88, 4, 0.3)), url(../images/adventure-2.jpg);
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 80%); }
+  -webkit-clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%); }
+
+.section-tours {
+  background-color: #f7f7f7;
+  padding: 25rem 0 5rem 0;
+  margin-top: -25vh; }
